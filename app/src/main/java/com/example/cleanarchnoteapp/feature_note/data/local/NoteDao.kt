@@ -1,12 +1,10 @@
 package com.example.cleanarchnoteapp.feature_note.data.local
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.cleanarchnoteapp.feature_note.domain.model.Note
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface NoteDao {
 
     @Query("SELECT * FROM note")
