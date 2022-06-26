@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.cleanarchnoteapp.feature_note.presentasion.note_list.components.NotesScreen
 import com.example.cleanarchnoteapp.ui.theme.CleanArchNoteAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,32 +25,10 @@ class MainActivity : ComponentActivity() {
             CleanArchNoteAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier
-            .fillMaxSize()
-    ){
-        Text(
-            text = "Hello $name!",
-            fontSize = 60.sp,
-            fontWeight = FontWeight.Bold
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    CleanArchNoteAppTheme {
-        Greeting("Mito")
-    }
-}
