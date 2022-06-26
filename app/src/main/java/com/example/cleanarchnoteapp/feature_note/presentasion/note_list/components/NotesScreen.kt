@@ -17,7 +17,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.cleanarchnoteapp.feature_note.domain.util.NoteOrder
 import com.example.cleanarchnoteapp.feature_note.presentasion.note_list.NoteEvents
 import com.example.cleanarchnoteapp.feature_note.presentasion.note_list.NoteViewModel
 import kotlinx.coroutines.launch
@@ -36,7 +35,7 @@ fun NotesScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    /*TODO*/
+                    /*TODO navigate to the add screen*/
                 },
                 backgroundColor = Color.White
             ){
