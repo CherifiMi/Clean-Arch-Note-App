@@ -11,6 +11,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -24,6 +25,7 @@ import androidx.navigation.NavController
 import com.example.cleanarchnoteapp.feature_note.domain.model.Note
 import com.example.cleanarchnoteapp.feature_note.presentasion.note_add_edit.AddEditNoteEvents
 import com.example.cleanarchnoteapp.feature_note.presentasion.note_add_edit.AddEditViewModel
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @Composable
@@ -36,6 +38,21 @@ fun AddEditNoteScreen(
     val decState = viewModel.noteDec.value
 
     val scaffoldState = rememberScaffoldState()
+
+    LaunchedEffect(key1 = true){
+        viewModel.eventFlow.collectLatest {event ->
+            when(event){
+                is AddEditViewModel.UiEvent.ShowSnackbar -> {
+                    scaffoldState.snackbarHostState.showSnackbar(
+                        message = event.message
+                    )
+                }
+                is AddEditViewModel.UiEvent.SaveNote -> {
+                    navController.navigateUp()
+                }
+            }
+        }
+    }
 
     val noteColorAnimatable = remember {
         Animatable(
