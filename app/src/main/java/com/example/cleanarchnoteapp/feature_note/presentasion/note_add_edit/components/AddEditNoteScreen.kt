@@ -80,7 +80,7 @@ fun AddEditNoteScreen(
                             .background(color)
                             .border(
                                 width = 3.dp,
-                                color = if(viewModel.noteColor.value == colorInt) Color.Black else Color.Transparent,
+                                color = if (viewModel.noteColor.value == colorInt) Color.Black else Color.Transparent,
                                 shape = CircleShape
                             )
                             .clickable {
@@ -94,9 +94,38 @@ fun AddEditNoteScreen(
                                 }
                                 viewModel.onEvent(AddEditNoteEvents.ChangeColor(colorInt))
                             }
-                            )
+                    )
                 }
             }
+            Spacer(modifier = Modifier.height(16.dp))
+            HintTextField(
+                text = titleState.text,
+                hint = titleState.hint,
+                onValueChange = {
+                    viewModel.onEvent(AddEditNoteEvents.EnteredTitle(it))
+                },
+                onFocusChange = {
+                    viewModel.onEvent(AddEditNoteEvents.ChangeTitleFocus(it))
+                },
+                isHintVisible = titleState.isHintVisible,
+                singleLine = true,
+                textStyle = MaterialTheme.typography.h5
+            )
+
+            //Spacer(modifier = Modifier.height(16.dp))
+            //HintTextField(
+            //    text = decState.text,
+            //    hint = decState.hint,
+            //    onValueChange = {
+            //        viewModel.onEvent(AddEditNoteEvents.EnteredDec(it))
+            //    },
+            //    onFocusChange = {
+            //        viewModel.onEvent(AddEditNoteEvents.ChangeDecFocus(it))
+            //    },
+            //    isHintVisible = decState.isHintVisible,
+            //    textStyle = MaterialTheme.typography.body1,
+            //    modifier = Modifier.fillMaxHeight()
+            //)
         }
     }
 }
