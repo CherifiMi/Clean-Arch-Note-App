@@ -12,6 +12,7 @@ import com.example.cleanarchnoteapp.feature_note.domain.use_case.NoteUseCases
 import com.example.cleanarchnoteapp.feature_note.domain.util.NoteTextFieldState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import java.io.InvalidObjectException
 import java.lang.Exception
@@ -38,6 +39,7 @@ class AddEditViewModel @Inject constructor(
     val noteColor: State<Int> = _noteColor
 
     private val _eventFlow = MutableSharedFlow<UiEvent>()
+    val eventFlow = _eventFlow.asSharedFlow()
 
     private var currentNoteId : Int? = null
 
