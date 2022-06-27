@@ -112,20 +112,20 @@ fun AddEditNoteScreen(
                 textStyle = MaterialTheme.typography.h5
             )
 
-            //Spacer(modifier = Modifier.height(16.dp))
-            //HintTextField(
-            //    text = decState.text,
-            //    hint = decState.hint,
-            //    onValueChange = {
-            //        viewModel.onEvent(AddEditNoteEvents.EnteredDec(it))
-            //    },
-            //    onFocusChange = {
-            //        viewModel.onEvent(AddEditNoteEvents.ChangeDecFocus(it))
-            //    },
-            //    isHintVisible = decState.isHintVisible,
-            //    textStyle = MaterialTheme.typography.body1,
-            //    modifier = Modifier.fillMaxHeight()
-            //)
+            Spacer(modifier = Modifier.height(16.dp))
+            HintTextField(
+                text = decState.text,
+                hint = decState.hint,
+                onValueChange = {
+                    viewModel.onEvent(AddEditNoteEvents.EnteredDec(it))
+                },
+                onFocusChange = {
+                    viewModel.onEvent(AddEditNoteEvents.ChangeDecFocus(it))
+                },
+                isHintVisible = decState.isHintVisible,
+                textStyle = MaterialTheme.typography.body1,
+                modifier = Modifier.fillMaxHeight()
+            )
         }
     }
 }
