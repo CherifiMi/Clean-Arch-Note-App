@@ -26,6 +26,12 @@ import com.example.cleanarchnoteapp.feature_note.presentasion.util.Screen
 import com.example.cleanarchnoteapp.ui.theme.CleanArchNoteAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+// TODO: coloring of the sorting filter
+// TODO: when editing title content change
+// TODO: stop accepting empty notes
+// TODO: shadow of color picker 
+// TODO: corner color too dark 
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
