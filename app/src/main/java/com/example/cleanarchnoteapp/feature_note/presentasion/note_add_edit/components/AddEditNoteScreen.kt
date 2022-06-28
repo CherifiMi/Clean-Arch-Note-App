@@ -92,7 +92,7 @@ fun AddEditNoteScreen(
                     Box (
                         modifier = Modifier
                             .size(50.dp)
-                            .shadow(15.dp)
+                            .shadow(15.dp, CircleShape)
                             .clip(CircleShape)
                             .background(color)
                             .border(
