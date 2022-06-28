@@ -1,6 +1,5 @@
 package com.example.cleanarchnoteapp.feature_note.presentasion.note_add_edit
 
-import android.os.SystemClock
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.toArgb
@@ -14,7 +13,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import java.io.InvalidObjectException
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -33,7 +31,7 @@ class AddEditViewModel @Inject constructor(
     private val _noteDec = mutableStateOf(NoteTextFieldState(
         hint = "Enter words..."
     ))
-    val noteDec: State<NoteTextFieldState> = _noteTitle
+    val noteDec: State<NoteTextFieldState> = _noteDec
 
     private val _noteColor = mutableStateOf(Note.noteColors.random().toArgb())
     val noteColor: State<Int> = _noteColor

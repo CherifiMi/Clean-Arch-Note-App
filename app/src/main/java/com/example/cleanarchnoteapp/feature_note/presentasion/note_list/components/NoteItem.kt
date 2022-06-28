@@ -72,7 +72,7 @@ fun NoteItem(
                 overflow = TextOverflow.Ellipsis
             )
             Text(
-                text = note.title,
+                text = note.content,
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSurface,
                 maxLines = 10,
