@@ -51,7 +51,7 @@ fun NoteItem(
                     cornerRadius = CornerRadius(corner.toPx())
                 )
                 drawRoundRect(
-                    color = Color(0x75202020),
+                    color = Color(0x28202020),
                     topLeft = Offset(size.width - cutCorner.toPx(), -100f),
                     size = Size(cutCorner.toPx() + 100f, cutCorner.toPx() + 100f),
                     cornerRadius = CornerRadius(corner.toPx())

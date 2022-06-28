@@ -29,7 +29,6 @@ import dagger.hilt.android.AndroidEntryPoint
 // TODO: coloring of the sorting filter
 // TODO: when editing title content change
 // TODO: stop accepting empty notes
-// TODO: shadow of color picker 
 // TODO: corner color too dark 
 
 @AndroidEntryPoint

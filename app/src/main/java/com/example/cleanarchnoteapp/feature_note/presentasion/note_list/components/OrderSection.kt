@@ -17,48 +17,49 @@ fun OrderSection(
         modifier = modifier
     ) {
         Row(
-            Modifier.fillMaxWidth()
-        ){
-            //______Title
+            modifier = Modifier.fillMaxWidth()
+        ) {
+
             DefaultRadioButton(
                 text = "Title",
-                selected =noteOrder is NoteOrder.Title,
-                onSelect = { onOrderChange(NoteOrder.Title(noteOrder.orderType))})
+                selected = noteOrder is NoteOrder.Title,
+                onSelect = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
+            )
+
             Spacer(modifier = Modifier.width(8.dp))
 
-            //______Date
             DefaultRadioButton(
                 text = "Date",
-                selected =noteOrder is NoteOrder.Date,
-                onSelect = { onOrderChange(NoteOrder.Date(noteOrder.orderType))})
+                selected = noteOrder is NoteOrder.Date,
+                onSelect = { onOrderChange(NoteOrder.Date(noteOrder.orderType)) }
+            )
+
             Spacer(modifier = Modifier.width(8.dp))
 
-            //______Color
             DefaultRadioButton(
                 text = "Color",
-                selected =noteOrder is NoteOrder.Color,
-                onSelect = { onOrderChange(NoteOrder.Color(noteOrder.orderType))})
+                selected = noteOrder is NoteOrder.Color,
+                onSelect = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) }
+            )
         }
-        //---------------------------------//
-        Spacer(modifier = Modifier.height(8.dp))
-        //---------------------------------//
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         Row(
-            Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
         ) {
-            //______Asc
+
             DefaultRadioButton(
-                text = "Asc",
-                selected =noteOrder.orderType is OrderType.Asc,
+                text = "Ascending",
+                selected = noteOrder.orderType is OrderType.Asc,
                 onSelect = {
                     onOrderChange(noteOrder.copy(OrderType.Asc))
                 }
             )
             Spacer(modifier = Modifier.width(8.dp))
-
-            //______Des
             DefaultRadioButton(
-                text = "Des",
-                selected =noteOrder.orderType is OrderType.Des,
+                text = "Descending",
+                selected = noteOrder.orderType is OrderType.Des,
                 onSelect = {
                     onOrderChange(noteOrder.copy(OrderType.Des))
                 }
