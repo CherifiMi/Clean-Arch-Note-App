@@ -27,7 +27,6 @@ import com.example.cleanarchnoteapp.ui.theme.CleanArchNoteAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 // TODO: coloring of the sorting filter
-// TODO: stop accepting empty notes
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

@@ -94,25 +94,34 @@ class AddEditViewModel @Inject constructor(
                 _noteColor.value = event.color
             }
             is AddEditNoteEvents.SaveNote -> {
-                viewModelScope.launch {
-                    try {
-                        noteUseCases.insertNote(
-                            Note(
-                                title = noteTitle.value.text,
-                                content = noteDec.value.text,
-                                timestamp = System.currentTimeMillis(),
-                                color = noteColor.value,
-                                id = currentNoteId
+                if (
+                    noteTitle.value.text.isNotEmpty()
+                    &&noteDec.value.text.isNotEmpty()
+                ){
+                    viewModelScope.launch {
+                        try {
+                            noteUseCases.insertNote(
+                                Note(
+                                    title = noteTitle.value.text,
+                                    content = noteDec.value.text,
+                                    timestamp = System.currentTimeMillis(),
+                                    color = noteColor.value,
+                                    id = currentNoteId
+                                )
                             )
-                        )
-                        _eventFlow.emit(UiEvent.SaveNote)
-                    }catch (e: Exception){
-                        _eventFlow.emit(
-                            UiEvent.ShowSnackbar(
-                                message = e.message ?: "couldn't do it boss man"
+                            _eventFlow.emit(UiEvent.SaveNote)
+                        }catch (e: Exception){
+                            _eventFlow.emit(
+                                UiEvent.ShowSnackbar(
+                                    message = e.message ?: "couldn't do it boss man"
+                                )
                             )
-                        )
+                        }
                     }
+                }else{
+                    UiEvent.ShowSnackbar(
+                        message = "Fill the note"
+                    )
                 }
             }
         }
