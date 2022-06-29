@@ -39,16 +39,17 @@ fun NotesScreen(
                     navController.navigate(Screen.AddEditNoteScreen.route)
                 },
                 backgroundColor = Color.White
-            ){
+            ) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
             }
         },
         scaffoldState = scaffoldState
-    ){
+    ) {
         Column(
             Modifier
                 .fillMaxSize()
-                .padding(16.dp)) {
+                .padding(16.dp)
+        ) {
             Row(
                 Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -59,9 +60,9 @@ fun NotesScreen(
                     style = MaterialTheme.typography.h4
                 )
                 IconButton(onClick = {
-                        viewModel.onEvent(NoteEvents.ToggleOrderSection)
-                    }
-                ){
+                    viewModel.onEvent(NoteEvents.ToggleOrderSection)
+                }
+                ) {
                     Icon(imageVector = Icons.Default.Sort, contentDescription = "Sort")
                 }
             }
@@ -80,8 +81,8 @@ fun NotesScreen(
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
-            LazyColumn(modifier = Modifier.fillMaxSize()){
-                items(state.notes){note->
+            LazyColumn(modifier = Modifier.fillMaxSize()) {
+                items(state.notes) { note ->
                     NoteItem(
                         note = note,
                         modifier = Modifier
@@ -99,7 +100,7 @@ fun NotesScreen(
                                     message = "Note Deleted",
                                     actionLabel = "Undo"
                                 )
-                                if (result == SnackbarResult.ActionPerformed){
+                                if (result == SnackbarResult.ActionPerformed) {
                                     viewModel.onEvent(NoteEvents.RestoreNote)
                                 }
                             }
