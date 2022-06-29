@@ -77,6 +77,10 @@ class NotesEndToEndTest {
 
         composeRule.onNodeWithTag(TestTags.TITLE_TEXT_FIELD).assertTextEquals("test_title")
         composeRule.onNodeWithTag(TestTags.CONTENT_TEXT_FIELD).assertTextEquals("test_content")
+        composeRule.onNodeWithTag(TestTags.TITLE_TEXT_FIELD).performTextInput("2")
+        composeRule.onNodeWithContentDescription("Save").performClick()
+
+        composeRule.onNodeWithText("test_title2").assertIsDisplayed()
     }
 
 }
