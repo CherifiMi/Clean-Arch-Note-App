@@ -5,6 +5,7 @@ import com.example.cleanarchnoteapp.feature_note.domain.repository.NoteRepositor
 
 class InsertNote (private val repo: NoteRepository){
     suspend operator fun invoke(note: Note){
+
         repo.insertNote(note)
     }
 }
