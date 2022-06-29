@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.cleanarchnoteapp.core.util.TestTags
 import com.example.cleanarchnoteapp.feature_note.domain.model.Note
 import com.example.cleanarchnoteapp.feature_note.presentasion.note_add_edit.AddEditNoteEvents
 import com.example.cleanarchnoteapp.feature_note.presentasion.note_add_edit.AddEditViewModel
@@ -118,6 +119,7 @@ fun AddEditNoteScreen(
             HintTextField(
                 text = titleState.text,
                 hint = titleState.hint,
+                testTag = TestTags.TITLE_TEXT_FIELD,
                 onValueChange = {
                     viewModel.onEvent(AddEditNoteEvents.EnteredTitle(it))
                 },
@@ -133,6 +135,7 @@ fun AddEditNoteScreen(
             HintTextField(
                 text = decState.text,
                 hint = decState.hint,
+                testTag = TestTags.CONTENT_TEXT_FIELD,
                 onValueChange = {
                     viewModel.onEvent(AddEditNoteEvents.EnteredDec(it))
                 },
