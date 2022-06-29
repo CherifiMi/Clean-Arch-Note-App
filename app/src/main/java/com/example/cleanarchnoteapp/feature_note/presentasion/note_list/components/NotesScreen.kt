@@ -14,9 +14,11 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.cleanarchnoteapp.core.util.TestTags
 import com.example.cleanarchnoteapp.feature_note.presentasion.note_list.NoteEvents
 import com.example.cleanarchnoteapp.feature_note.presentasion.note_list.NoteViewModel
 import com.example.cleanarchnoteapp.feature_note.presentasion.util.Screen
@@ -74,7 +76,8 @@ fun NotesScreen(
                 OrderSection(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                        .padding(vertical = 16.dp)
+                        .testTag(TestTags.ORDER_SECTION),
                     onOrderChange = {
                         viewModel.onEvent(NoteEvents.Order(it))
                     }
